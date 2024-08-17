@@ -1,0 +1,66 @@
+User management (Create and Read operations)
+Project management (Create and Read operations)
+Task management (CRUD operations)
+
+pip install fastapi uvicorn sqlalchemy
+task-main.py // Run the server:
+
+
+You can now use Postman to interact with the API. Here are some example requests:
+Create a user (POST):
+URL: http://localhost:8000/users/
+Method: POST
+Body (raw JSON):
+jsonCopy{
+    "username": "john_doe",
+    "email": "john@example.com"
+}
+
+Create a project (POST):
+URL: http://localhost:8000/projects/
+Method: POST
+Body (raw JSON):
+jsonCopy{
+    "name": "Website Redesign",
+    "description": "Redesign the company website"
+}
+
+Create a task (POST):
+URL: http://localhost:8000/tasks/
+Method: POST
+Body (raw JSON):
+jsonCopy{
+    "title": "Design homepage",
+    "description": "Create a new design for the homepage",
+    "status": "TODO",
+    "priority": "HIGH",
+    "due_date": "2024-09-01T00:00:00",
+    "project_id": 1,
+    "assigned_to_id": 1
+}
+
+Get all tasks (GET):
+URL: http://localhost:8000/tasks/
+Method: GET
+
+Get tasks with filters (GET):
+URL: http://localhost:8000/tasks/?status=TODO&priority=HIGH&project_id=1
+Method: GET
+
+Update a task (PUT):
+URL: http://localhost:8000/tasks/1
+Method: PUT
+Body (raw JSON):
+jsonCopy{
+    "title": "Design homepage",
+    "description": "Create a new design for the homepage",
+    "status": "IN_PROGRESS",
+    "priority": "HIGH",
+    "due_date": "2024-09-01T00:00:00",
+    "project_id": 1,
+    "assigned_to_id": 1
+}
+
+Delete a task (DELETE):
+URL: http://localhost:8000/tasks/1
+Method: DELETE

@@ -1,0 +1,44 @@
+Book management (CRUD operations)
+Author management (Create and Read operations)
+Borrowing system (Create borrow records and return books)
+
+pip install fastapi uvicorn sqlalchemy
+python main.py // Run the server
+
+You can now use Postman to interact with the API. Here are some example requests:
+Create an author (POST):
+URL: http://localhost:8000/authors/
+Method: POST
+Body (raw JSON):
+jsonCopy{
+    "name": "J.K. Rowling",
+    "birth_year": 1965
+}
+
+Create a book (POST):
+URL: http://localhost:8000/books/
+Method: POST
+Body (raw JSON):
+jsonCopy{
+    "title": "Harry Potter and the Philosopher's Stone",
+    "isbn": "9780747532743",
+    "publication_year": 1997,
+    "author_id": 1
+}
+
+Get all books (GET):
+URL: http://localhost:8000/books/
+Method: GET
+
+Create a borrow record (POST):
+URL: http://localhost:8000/borrow/
+Method: POST
+Body (raw JSON):
+jsonCopy{
+    "book_id": 1,
+    "borrower_name": "John Doe"
+}
+
+Return a book (PUT):
+URL: http://localhost:8000/borrow/1/return
+Method: PUT
